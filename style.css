@@ -73,7 +73,7 @@ body {
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1.2s 0.8fr; /* 左右不對稱現代排版 */
+    grid-template-columns: 1.2fr 0.8fr; 
     width: 100%;
     align-items: center;
     gap: 4rem;
@@ -140,4 +140,125 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* ==========================================================================
+   4. 作品網格區塊 (Work Grid)
+   ========================================================================== */
+   .projects-section {
+    padding: 8rem 4rem;
+    background-color: var(--bg-color);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 1.5rem;
+}
+
+.section-number {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 網格核心：1大、2小，既維持整齊，又有視覺階層 */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+/* 讓主打專案 1 橫跨兩欄，成為視覺焦點 */
+.project-card.large-card {
+    grid-column: span 2;
+}
+
+.project-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #161616; /* 高級深灰底色，當作毛胚圖片占位 */
+    border: 1px solid #222;
+    overflow: hidden;
+    transition: border-color 0.4s ease;
+}
+
+/* 模擬 Awwwards 網站滑過時的細緻微互動 */
+.project-card:hover .project-image-wrapper {
+    border-color: #444;
+}
+
+.project-mock-img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-info {
+    padding-top: 1.5rem;
+}
+
+.project-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.project-index {
+    color: var(--text-muted);
+}
+
+.project-tag {
+    background: #161616;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #222;
+    color: var(--text-muted);
+}
+
+.project-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.project-caption {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    max-width: 600px;
+}
+
+/* 誠實反饋落地：外商主管最看重的數據成果標籤 */
+.project-impact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    border-top: 1px dashed #222;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.impact-label {
+    color: var(--text-muted);
+}
+
+.impact-value {
+    color: var(--text-main);
+    font-weight: 600;
 }
