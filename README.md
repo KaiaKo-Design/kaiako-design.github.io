@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://kaiako-design.github.io/">
+  <a href="https://kaiako-design.github.io/"  target="_blank">
     <img src="https://raw.githubusercontent.com/KaiaKo-Design/kaiako-design.github.io/main/preview.png" 
          alt="Kaia Ko Portfolio" width="800" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   </a>
