@@ -2,13 +2,24 @@
    1. 基礎重設 (Reset) 與變數宣告
    ========================================================================== */
    :root {
-    --bg-color: #0a0a0a;          /* 極致暗黑背景 */
-    --text-main: #ffffff;         /* 純白大字 */
-    --text-muted: #888888;        /* 低調灰色 */
+    --bg-color: #ffffff;          
+    --text-main: #0e0e0e;         
+    --text-muted: #594b4b;        
     --accent-glow: rgba(255, 182, 193, 0.15); /* Wireframe左上角的粉紅微光 */
     
     --font-sans: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+
+    --section-padding-x: clamp(1.25rem, 5vw, 4rem);
+    --content-max-width: 1200px;
+}
+
+/* 全站共用：置中內容區，大螢幕左右自然留空 */
+.page-container {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    padding-inline: var(--section-padding-x);
 }
 
 * {
@@ -29,14 +40,17 @@ body {
    2. 基礎 Navbar 排版
    ========================================================================== */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 4rem;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
+    padding: 2rem 0;
+}
+
+.navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-logo {
@@ -67,28 +81,50 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 0 4rem;
+    justify-content: center;
+    padding: 8rem 0 4rem;
     position: relative;
 }
 
 .hero-container {
-    display: grid;
-    grid-template-columns: 1.2s 0.8fr; /* 左右不對稱現代排版 */
-    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 4rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-glow {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.35) 0%, rgba(255, 182, 193, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -60%);
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(40px);
+}
+
+.hero-text-area {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
 }
 
 .hero-title {
-    font-size: 4.5rem;
+    font-size: clamp(3rem, 7vw, 4.5rem);
     font-weight: 700;
     line-height: 1.1;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .greeting {
-    font-size: 4.5rem;
     color: var(--text-main);
 }
 
@@ -98,46 +134,298 @@ body {
 }
 
 .marquee-lead {
-    font-size: 1.8rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
     font-weight: 400;
     color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.35em;
 }
 
-/* 暫時讓第一個跑馬燈字體呈現 */
-.marquee-item {
+.marquee-container {
+    display: inline;
+}
+
+.marquee-rotating {
+    color: var(--text-muted);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.marquee-rotating.is-fading {
+    opacity: 0;
+    transform: translateY(-6px);
+}
+
+/* ==========================================================================
+   4. 關於我區塊 (About Me)
+   ========================================================================== */
+.about-section {
+    padding: 8rem 0;
+    background-color: var(--bg-color);
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.about-lead {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+}
+
+.about-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    max-width: 540px;
+}
+
+.about-highlights {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #222;
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.highlight-value {
     font-family: var(--font-mono);
+    font-size: 1.4rem;
+    font-weight: 700;
     color: var(--text-main);
 }
 
-/* 視覺區塊與粉紅光暈 */
-.hero-visual-area {
+.highlight-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.about-visual {
     position: relative;
     display: flex;
     justify-content: center;
 }
 
-.glow-effect {
+.about-glow {
     position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%);
-    top: -50px;
-    left: -50px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0, 0, 0, 0) 70%);
+    bottom: -40px;
+    right: -40px;
     z-index: 1;
     pointer-events: none;
 }
 
-.avatar-frame {
+.about-photo-frame {
     width: 100%;
-    max-width: 400px;
-    aspect-ratio: 4 / 5;
-    background: #111; /* 照片還沒載入時的灰色底塊 */
+    max-width: 420px;
+    aspect-ratio: 3 / 4;
     border: 1px solid #222;
+    overflow: hidden;
     z-index: 2;
+    transition: border-color 0.4s ease;
 }
 
-.avatar-img {
+.about-photo-frame:hover {
+    border-color: #444;
+}
+
+.about-photo-placeholder {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background-color: #161616;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-label {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   5. 作品網格區塊 (Work Grid)
+   ========================================================================== */
+   .projects-section {
+    padding: 8rem 0;
+    background-color: var(--bg-color);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 1.5rem;
+}
+
+.section-number {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 網格核心：1大、2小，既維持整齊，又有視覺階層 */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+/* 讓主打專案 1 橫跨兩欄，成為視覺焦點 */
+.project-card.large-card {
+    grid-column: span 2;
+}
+
+.project-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #161616; /* 高級深灰底色，當作毛胚圖片占位 */
+    border: 1px solid #222;
+    overflow: hidden;
+    transition: border-color 0.4s ease;
+}
+
+/* 模擬 Awwwards 網站滑過時的細緻微互動 */
+.project-card:hover .project-image-wrapper {
+    border-color: #444;
+}
+
+.project-mock-img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-info {
+    padding-top: 1.5rem;
+}
+
+.project-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.project-index {
+    color: var(--text-muted);
+}
+
+.project-tag {
+    background: #161616;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #222;
+    color: var(--text-muted);
+}
+
+.project-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.project-caption {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    max-width: 600px;
+}
+
+/* 誠實反饋落地 */
+.project-impact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    border-top: 1px dashed #222;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.impact-label {
+    color: var(--text-muted);
+}
+
+.impact-value {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   6. 響應式排版 (Responsive)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .hero-section {
+        padding: 7rem 0 3rem;
+    }
+
+    .hero-glow {
+        width: 260px;
+        height: 260px;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .about-visual {
+        order: -1;
+    }
+
+    .about-photo-frame {
+        max-width: 100%;
+    }
+
+    .about-highlights {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+}
+
+/* ==========================================================================
+   動畫過渡
+   ========================================================================== */
+
+.marquee-rotating {
+    transition: opacity 0.4s ease-in-out;
+    opacity: 1;
+}
+
+.marquee-rotating.is-fading {
+    opacity: 0;
 }

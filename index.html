@@ -1,4 +1,5 @@
-/<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,49 +15,169 @@
 
     <!-- 頂部導覽列 Navbar -->
     <nav class="navbar">
-        <div class="nav-logo">KAIA.KO</div>
-        <div class="nav-links">
-            <a href="#about" class="nav-item">About</a>
-            <a href="#projects" class="nav-item active">Project</a>
-            <a href="#articles" class="nav-item">Articles</a>
+        <div class="page-container navbar-inner">
+            <div class="nav-logo">KAIA.KO</div>
+            <div class="nav-links">
+                <a href="#about" class="nav-item">About</a>
+                <a href="#projects" class="nav-item active">Project</a>
+                <a href="#articles" class="nav-item">Articles</a>
+            </div>
         </div>
     </nav>
 
     <main>
-        <!-- 第一 Cut：Hero Section -->
+        <!-- 01 Cut：Hero Section -->
         <section class="hero-section">
-            <div class="hero-container">
-                
-                <!-- 左側：Typography 文字張力與跑馬燈區塊 -->
+            <div class="hero-glow"></div>
+            <div class="hero-container page-container">
+
                 <div class="hero-text-area">
                     <h1 class="hero-title">
                         <span class="greeting">It’s KaiaKo</span>
                         <span class="role">Product Designer</span>
-                        <span class="marquee-lead">with 
-                            <!-- 跑馬燈動態容器 -->
+                        <span class="marquee-lead">with
                             <span class="marquee-container">
-                                <span class="marquee-item active">10M+ user platform expertise</span>
-                                <span class="marquee-item">25%+ conversion growth records</span>
-                                <span class="marquee-item">proven cross-functional agility</span>
+                                <span class="marquee-rotating">scaling products for 10M+ users.</span>
                             </span>
                         </span>
                     </h1>
                 </div>
 
-                <!-- 右側：粉紅光暈與高級攝影棚頭像區塊 -->
-                <div class="hero-visual-area">
-                    <div class="glow-effect"></div>
-                    <div class="avatar-frame">
-                        <!-- 請確保妳的深灰背景照片命名為 avatar.jpg 並放在同一個資料夾 -->
-                        <img src="avatar.jpg" alt="Kaia Ko" class="avatar-img">
+            </div>
+        </section>
+
+        <!-- 02 Cut：作品網格區塊 (Work Grid) -->
+        <section class="projects-section" id="projects">
+            <div class="page-container">
+            <div class="section-header">
+                <span class="section-number">01 /</span>
+                <h2 class="section-title">Selected Works</h2>
+            </div>
+
+            <div class="projects-grid">
+                
+                <!-- 專案 1：MOMO (核心主打，佔據大版面) -->
+                <div class="project-card large-card">
+                    <div class="project-image-wrapper">
+                        <!-- 之後把妳的專案縮圖放這，目前用內建灰色底色 -->
+                        <div class="project-mock-img"></div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-index">01</span>
+                            <span class="project-tag">E-commerce UI/UX</span>
+                        </div>
+                        <h3 class="project-name">Momo Checkout Optimization</h3>
+                        <p class="project-caption">Streamlining the registration and shopping cart workflow for Taiwan's leading e-commerce platform.</p>
+                        <div class="project-impact">
+                            <span class="impact-label">Key Metric:</span>
+                            <span class="impact-value">Significant Drop-off Reduction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 專案 2：AIOS 專案 -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <div class="project-mock-img"></div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-index">02</span>
+                            <span class="project-tag">AI System Design</span>
+                        </div>
+                        <h3 class="project-name">AIOS Intelligence Interface</h3>
+                        <p class="project-caption">Designing an intuitive control panel and workflow management for cross-functional AI operations.</p>
+                        <div class="project-impact">
+                            <span class="impact-label">Key Metric:</span>
+                            <span class="impact-value">Task Efficiency Boosted</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 專案 3：另一個主力專案 -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <div class="project-mock-img"></div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-index">03</span>
+                            <span class="project-tag">Product Architecture</span>
+                        </div>
+                        <h3 class="project-name">Platform Scaling Project</h3>
+                        <p class="project-caption">Rearchitecting core design systems to ensure seamless scalability across multi-million user products.</p>
+                        <div class="project-impact">
+                            <span class="impact-label">Key Metric:</span>
+                            <span class="impact-value">Component Adoption Rate</span>
+                        </div>
                     </div>
                 </div>
 
             </div>
+            </div>
         </section>
 
-        <!-- [我們下一步要刻的作品網格 Work Grid 會接在這裡] -->
+
+        <!-- 03 Cut：關於我區塊 (About Me) -->
+        <section class="about-section" id="about">
+            <div class="page-container">
+            <div class="section-header">
+                <span class="section-number">00 /</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+
+            <div class="about-container">
+                <!-- 左欄：文字介紹 -->
+                <div class="about-text">
+                    <p class="about-lead">
+                        I design products that turn complexity into clarity — 
+                        bridging user needs, business goals, and engineering constraints.
+                    </p>
+                    <p class="about-body">
+                        With experience shaping platforms serving 10M+ users, I specialize in 
+                        end-to-end product design — from research and wireframing to high-fidelity 
+                        prototyping and design system governance. I thrive in cross-functional 
+                        teams where design decisions are grounded in data and validated through iteration.
+                    </p>
+                    <p class="about-body">
+                        Currently focused on e-commerce optimization, AI-driven interfaces, 
+                        and scalable design systems. I believe great design is invisible: 
+                        it removes friction so people can focus on what matters.
+                    </p>
+
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-value">10M+</span>
+                            <span class="highlight-label">Users Impacted</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-value">25%+</span>
+                            <span class="highlight-label">Conversion Growth</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-value">3+</span>
+                            <span class="highlight-label">Years in Product</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右欄：背景照片占位符 -->
+                <div class="about-visual">
+                    <div class="about-glow"></div>
+                    <div class="about-photo-frame">
+                        <div class="about-photo-placeholder" role="img" aria-label="Kaia Ko workspace photo placeholder">
+                            <span class="placeholder-label">Photo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
     </main>
 
+    
+    <!-- 引入JS -->
+    <script src="script.js"></script>
 </body>
-</html>
