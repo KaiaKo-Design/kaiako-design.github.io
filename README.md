@@ -18,5 +18,4 @@
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JS">
 </p>
   
-  <p><i>Click the image above to explore my latest design projects and case studies.</i></p>
 </div>
