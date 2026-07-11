@@ -6,10 +6,8 @@
 
   <br><br>
 
-  <a href="https://kaiako-design.github.io/">
+  <a href="https://kaiako-design.github.io/"  target="_blank">
     <img src="https://img.shields.io/badge/View_Full_Portfolio-000000?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Visit Website">
   </a>
-
-
   
 </div>
